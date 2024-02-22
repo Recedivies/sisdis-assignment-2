@@ -33,7 +33,7 @@ def send_message(node_id, port):
 def sending_procedure(
     heartbeat_duration,
     node_id,
-    neighbors_port,
+    neighbors_ports,
     node_ports,
     main_port,
     num_of_neighbors_to_choose,
@@ -50,16 +50,25 @@ def sending_procedure(
 
         logger.info("Determining which node to send...")
 
-        random_neighbors = random.sample(neighbors_port, num_of_neighbors_to_choose)
+        alive_port_node = []
+        for port in neighbors_ports:
+            node_name = f"node-{node_ports[port]}"
+            status = status_dictionary[node_name][1]
+            if status == True:
+                alive_port_node.append(port)
+
+        random_neighbors = random.sample(
+            alive_port_node,
+            max(0, min(num_of_neighbors_to_choose, len(alive_port_node))),
+        )
+
         node_names = [f"node-{node_ports[node]}" for node in random_neighbors]
         log_message = "Send messages to main node, " + ", ".join(node_names)
 
         logger.info(log_message)
 
         send_message(node_id=node_id, port=main_port)
-        # print(random_neighbors, "\n")
         for neighbor_port in random_neighbors:
-            message = f"Heartbeat from node {node_id}"
             send_message(node_id=node_id, port=neighbor_port)
 
         time.sleep(heartbeat_duration)
@@ -110,7 +119,7 @@ def listening_procedure(port, node_id, fault_duration):
 
     logger.info("Start the timer for fault duration...")
 
-    fault_timer_procedure(node_id=node_id, fault_duration=fault_duration)
+    fault_timer_procedure(node_id=f"node-{node_id}", fault_duration=fault_duration)
 
     logger.info("Initiating socket...")
 
@@ -129,26 +138,22 @@ def listening_procedure(port, node_id, fault_duration):
         sender_node = splitted_message[0]
         status_dictionary_node = splitted_message[1]
 
-        # TODO !!!
-        # Handle that receive from node-i, it means we need to restart timer of fault_timer_procedure
-        # But how (?)
-
         if sender_node in timer_dict:
             timer_dict[sender_node].cancel()
-            thread = threading.Timer(fault_duration, start_fault_timer, (key,))
+            thread = threading.Timer(fault_duration, start_fault_timer, (sender_node,))
             thread.start()
             timer_dict[sender_node] = thread
 
         dict_status_dictionary = literal_eval(status_dictionary_node)
 
-        logger.info(f"Receive message from node-{sender_node}...")
+        logger.info(f"Receive message from {sender_node}...")
 
         logger.info(f"Incoming message:\n{pformat(dict_status_dictionary)}")
 
         logger.debug(f"address: {address}")
         logger.debug("Process the message...")
 
-        for node_id in range(1, 5):
+        for node_id in range(1, len(status_dictionary) + 1):
             node = f"node-{node_id}"
 
             current_logical_time = status_dictionary[node][0]

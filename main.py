@@ -263,13 +263,16 @@ def interactive_mode(starting_port, port_used, args):
 
                 logger.info(f"Checking node-{node_id} with port {port_node} status...")
 
-                status_dictionary_node = check_node_status(
-                    port=port_node, main_port=starting_port - 1
-                )
-
-                logger.info(
-                    f"Node node-{node_id} status dictionary:\n{pformat(status_dictionary_node)}"
-                )
+                node_name = f"node-{node_id}"
+                if node_name in node_dictionary:
+                    status_dictionary_node = check_node_status(
+                        port=port_node, main_port=starting_port - 1
+                    )
+                    logger.info(
+                        f"Node node-{node_id} status dictionary:\n{pformat(status_dictionary_node)}"
+                    )
+                else:
+                    logger.info(f"Node {node_id} is not running.")
 
             elif command[0] == "start" and len(command) == 2:
                 node_id = int(command[1])
@@ -347,7 +350,7 @@ def main():
         target=listening_procedure,
         args=(
             starting_port - 1,
-            argsval.heartbeat + argsval.fault_duration,
+            float(argsval.heartbeat) + float(argsval.fault_duration),
             stop_event,
         ),
     )
