@@ -58,8 +58,7 @@ def sending_procedure(
                 alive_port_node.append(port)
 
         random_neighbors = random.sample(
-            alive_port_node,
-            max(0, min(num_of_neighbors_to_choose, len(alive_port_node))),
+            alive_port_node, min(num_of_neighbors_to_choose, len(alive_port_node))
         )
 
         node_names = [f"node-{node_ports[node]}" for node in random_neighbors]
