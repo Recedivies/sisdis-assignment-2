@@ -1,103 +1,183 @@
-22:01:24 INFO   MainThread:236 Node with id 1 is running
-22:01:24 DEBUG  MainThread:237 heartbeat_duration: 5.0
-22:01:24 DEBUG  MainThread:238 fault_duration: 11.0
-22:01:24 DEBUG  MainThread:239 port: 10262
-22:01:24 DEBUG  MainThread:240 num_of_neighbors_to_choose: 2
-22:01:24 DEBUG  MainThread:241 initial neighbors_ports: [10262, 10263, 10264, 10265]
-22:01:24 INFO   MainThread:243 Configure the status_dictionary global variable
-22:01:24 DEBUG  MainThread:251 final neighbors_ports: [10263, 10264, 10265]
-22:01:24 INFO   MainThread:252 status_dictionary:
+23:13:17 INFO   MainThread:239 Node with id 1 is running
+23:13:17 DEBUG  MainThread:240 heartbeat_duration: 5.0
+23:13:17 DEBUG  MainThread:241 fault_duration: 11.0
+23:13:17 DEBUG  MainThread:242 port: 10750
+23:13:17 DEBUG  MainThread:243 num_of_neighbors_to_choose: 2
+23:13:17 DEBUG  MainThread:244 initial neighbors_ports: [10750, 10751, 10752, 10753]
+23:13:17 INFO   MainThread:246 Configure the status_dictionary global variable
+23:13:17 DEBUG  MainThread:254 final neighbors_ports: [10751, 10752, 10753]
+23:13:17 INFO   MainThread:255 status_dictionary:
 {'node-1': [0, True],
  'node-2': [0, True],
  'node-3': [0, True],
  'node-4': [0, True]}
-22:01:24 INFO   MainThread:253 Done configuring the status_dictionary
-22:01:24 INFO   MainThread:255 Executing the status check procedure
-22:01:24 INFO   tcp_listening_thread:96  Initiating TCP socket
-22:01:24 INFO   MainThread:260 Executing the listening procedure
-22:01:24 INFO   listening_thread:124 Start the timer for fault duration...
-22:01:24 INFO   MainThread:268 Executing the sending procedure
-22:01:24 INFO   tcp_listening_thread:102 Listening for incoming TCP connections...
-22:01:24 DEBUG  listening_thread:83  key: node-1
-22:01:24 DEBUG  listening_thread:83  key: node-2
-22:01:24 INFO   sending_thread:49  Increase heartbeat node-1:
+23:13:17 INFO   MainThread:256 Done configuring the status_dictionary
+23:13:17 INFO   MainThread:258 Executing the status check procedure
+23:13:17 INFO   tcp_listening_thread:91  Initiating TCP socket
+23:13:17 INFO   MainThread:263 Executing the listening procedure
+23:13:17 INFO   tcp_listening_thread:97  Listening for incoming TCP connections...
+23:13:17 INFO   listening_thread:125 Start the timer for fault duration...
+23:13:17 INFO   MainThread:271 Executing the sending procedure
+23:13:17 DEBUG  listening_thread:78  key: node-1
+23:13:17 INFO   sending_thread:49  Increase heartbeat node-1:
 {'node-1': [1, True],
  'node-2': [0, True],
  'node-3': [0, True],
  'node-4': [0, True]}
-22:01:24 INFO   sending_thread:51  Determining which node to send...
-22:01:24 DEBUG  listening_thread:83  key: node-3
-22:01:24 INFO   sending_thread:71  Send messages to main node, node-3, node-4
-22:01:24 DEBUG  listening_thread:83  key: node-4
-22:01:24 DEBUG  sending_thread:20  Create the client socket
-22:01:24 INFO   listening_thread:128 Initiating socket...
-22:01:24 INFO   listening_thread:133 Listen for incoming messages...
-22:01:24 DEBUG  sending_thread:24  Encode the message
-22:01:24 INFO   listening_thread:139 message_raw: node-4#{'node-1': [0, True], 'node-2': [0, True], 'node-3': [0, True], 'node-4': [1, True]}
-22:01:24 DEBUG  sending_thread:26  message: node-1#{'node-1': [1, True], 'node-2': [0, True], 'node-3': [0, True], 'node-4': [0, True]}
-22:01:24 DEBUG  sending_thread:29  Send the message
-22:01:24 INFO   listening_thread:153 Receive message from node-4...
-22:01:24 INFO   listening_thread:155 Incoming message:
-{'node-1': [0, True],
- 'node-2': [0, True],
- 'node-3': [0, True],
- 'node-4': [1, True]}
-22:01:24 DEBUG  listening_thread:157 address: ('127.0.0.1', 52967)
-22:01:24 DEBUG  listening_thread:158 Process the message...
-22:01:24 DEBUG  listening_thread:169 input_node_list node-1: [0, True]
-22:01:24 DEBUG  listening_thread:170 current_node_list node-1: [1, True]
-22:01:24 DEBUG  listening_thread:176 Skip this loop...
-22:01:24 DEBUG  listening_thread:169 input_node_list node-2: [0, True]
-22:01:24 DEBUG  listening_thread:170 current_node_list node-2: [0, True]
-22:01:24 DEBUG  listening_thread:176 Skip this loop...
-22:01:24 DEBUG  listening_thread:169 input_node_list node-3: [0, True]
-22:01:24 DEBUG  listening_thread:170 current_node_list node-3: [0, True]
-22:01:24 DEBUG  listening_thread:176 Skip this loop...
-22:01:24 DEBUG  listening_thread:169 input_node_list node-4: [1, True]
-22:01:24 DEBUG  listening_thread:170 current_node_list node-4: [0, True]
-22:01:24 DEBUG  listening_thread:179 Update logical time node-4: 0 -> 1
-22:01:24 DEBUG  listening_thread:185 Check if node-4 has died...
-22:01:24 DEBUG  listening_thread:188 node-4 has not died...
-22:01:24 INFO   listening_thread:192 status_dictionary after incoming message:
+23:13:17 DEBUG  listening_thread:78  key: node-2
+23:13:17 INFO   sending_thread:51  Determining which node to send...
+23:13:17 INFO   sending_thread:67  Send messages to main node, node-4, node-2
+23:13:17 DEBUG  sending_thread:20  Create the client socket
+23:13:17 DEBUG  listening_thread:78  key: node-3
+23:13:17 DEBUG  sending_thread:24  Encode the message
+23:13:17 DEBUG  sending_thread:26  message: node-1#{'node-1': [1, True], 'node-2': [0, True], 'node-3': [0, True], 'node-4': [0, True]}
+23:13:17 DEBUG  sending_thread:29  Send the message
+23:13:17 DEBUG  listening_thread:78  key: node-4
+23:13:17 DEBUG  sending_thread:20  Create the client socket
+23:13:17 INFO   listening_thread:129 Initiating socket...
+23:13:17 DEBUG  sending_thread:24  Encode the message
+23:13:17 DEBUG  sending_thread:26  message: node-1#{'node-1': [1, True], 'node-2': [0, True], 'node-3': [0, True], 'node-4': [0, True]}
+23:13:17 INFO   listening_thread:134 Listen for incoming messages...
+23:13:17 DEBUG  sending_thread:29  Send the message
+23:13:17 DEBUG  sending_thread:20  Create the client socket
+23:13:17 DEBUG  sending_thread:24  Encode the message
+23:13:17 DEBUG  sending_thread:26  message: node-1#{'node-1': [1, True], 'node-2': [0, True], 'node-3': [0, True], 'node-4': [0, True]}
+23:13:17 DEBUG  sending_thread:29  Send the message
+23:13:20 INFO   listening_thread:140 message_raw: node-2#{'node-1': [1, True], 'node-2': [11, True], 'node-3': [0, True], 'node-4': [10, True]}
+23:13:20 INFO   listening_thread:154 Receive message from node-2...
+23:13:20 INFO   listening_thread:156 Incoming message:
 {'node-1': [1, True],
- 'node-2': [0, True],
+ 'node-2': [11, True],
  'node-3': [0, True],
- 'node-4': [1, True]}
-22:01:24 INFO   listening_thread:139 message_raw: node-2#{'node-1': [0, True], 'node-2': [1, True], 'node-3': [1, True], 'node-4': [0, True]}
-22:01:24 DEBUG  sending_thread:20  Create the client socket
-22:01:24 DEBUG  sending_thread:24  Encode the message
-22:01:24 DEBUG  sending_thread:26  message: node-1#{'node-1': [1, True], 'node-2': [0, True], 'node-3': [0, True], 'node-4': [1, True]}
-22:01:24 DEBUG  sending_thread:29  Send the message
-22:01:24 INFO   listening_thread:153 Receive message from node-2...
-22:01:24 INFO   listening_thread:155 Incoming message:
-{'node-1': [0, True],
- 'node-2': [1, True],
- 'node-3': [1, True],
- 'node-4': [0, True]}
-22:01:24 DEBUG  listening_thread:157 address: ('127.0.0.1', 36350)
-22:01:24 DEBUG  listening_thread:158 Process the message...
-22:01:24 DEBUG  listening_thread:169 input_node_list node-1: [0, True]
-22:01:24 DEBUG  listening_thread:170 current_node_list node-1: [1, True]
-22:01:24 DEBUG  listening_thread:176 Skip this loop...
-22:01:24 DEBUG  listening_thread:169 input_node_list node-2: [1, True]
-22:01:24 DEBUG  listening_thread:170 current_node_list node-2: [0, True]
-22:01:24 DEBUG  listening_thread:179 Update logical time node-2: 0 -> 1
-22:01:24 DEBUG  listening_thread:185 Check if node-2 has died...
-22:01:24 DEBUG  sending_thread:20  Create the client socket
-22:01:24 DEBUG  listening_thread:188 node-2 has not died...
-22:01:24 DEBUG  sending_thread:24  Encode the message
-22:01:24 DEBUG  listening_thread:169 input_node_list node-3: [1, True]
-22:01:24 DEBUG  sending_thread:26  message: node-1#{'node-1': [1, True], 'node-2': [1, True], 'node-3': [0, True], 'node-4': [1, True]}
-22:01:24 DEBUG  listening_thread:170 current_node_list node-3: [0, True]
-22:01:24 DEBUG  sending_thread:29  Send the message
-22:01:24 DEBUG  listening_thread:179 Update logical time node-3: 0 -> 1
-22:01:24 DEBUG  listening_thread:185 Check if node-3 has died...
-22:01:24 DEBUG  listening_thread:188 node-3 has not died...
-22:01:24 DEBUG  listening_thread:169 input_node_list node-4: [0, True]
-22:01:24 DEBUG  listening_thread:170 current_node_list node-4: [1, True]
-22:01:24 DEBUG  listening_thread:176 Skip this loop...
-22:01:24 INFO   listening_thread:192 status_dictionary after incoming message:
+ 'node-4': [10, True]}
+23:13:20 DEBUG  listening_thread:158 address: ('127.0.0.1', 36786)
+23:13:20 DEBUG  listening_thread:159 Process the message...
+23:13:20 DEBUG  listening_thread:170 input_node_list node-1: [1, True]
+23:13:20 DEBUG  listening_thread:171 current_node_list node-1: [1, True]
+23:13:20 DEBUG  listening_thread:182 Update logical time node-1: 1 -> 1
+23:13:20 DEBUG  listening_thread:188 Check if node-1 has died...
+23:13:20 DEBUG  listening_thread:191 node-1 has not died...
+23:13:20 DEBUG  listening_thread:170 input_node_list node-2: [11, True]
+23:13:20 DEBUG  listening_thread:171 current_node_list node-2: [0, True]
+23:13:20 DEBUG  listening_thread:182 Update logical time node-2: 0 -> 11
+23:13:20 DEBUG  listening_thread:188 Check if node-2 has died...
+23:13:20 DEBUG  listening_thread:191 node-2 has not died...
+23:13:20 DEBUG  listening_thread:170 input_node_list node-3: [0, True]
+23:13:20 DEBUG  listening_thread:171 current_node_list node-3: [0, True]
+23:13:20 DEBUG  listening_thread:179 Skip this loop...
+23:13:20 DEBUG  listening_thread:170 input_node_list node-4: [10, True]
+23:13:20 DEBUG  listening_thread:171 current_node_list node-4: [0, True]
+23:13:20 DEBUG  listening_thread:182 Update logical time node-4: 0 -> 10
+23:13:20 DEBUG  listening_thread:188 Check if node-4 has died...
+23:13:20 DEBUG  listening_thread:191 node-4 has not died...
+23:13:20 INFO   listening_thread:195 status_dictionary after incoming message:
 {'node-1': [1, True],
- 'node-2': [1, True],
- 'node-3': [1, True],
- 'node-4': [1, True]}
+ 'node-2': [11, True],
+ 'node-3': [0, True],
+ 'node-4': [10, True]}
+23:13:22 INFO   sending_thread:49  Increase heartbeat node-1:
+{'node-1': [2, True],
+ 'node-2': [11, True],
+ 'node-3': [0, True],
+ 'node-4': [10, True]}
+23:13:22 INFO   sending_thread:51  Determining which node to send...
+23:13:22 INFO   sending_thread:67  Send messages to main node, node-4, node-3
+23:13:22 DEBUG  sending_thread:20  Create the client socket
+23:13:22 DEBUG  sending_thread:24  Encode the message
+23:13:22 DEBUG  sending_thread:26  message: node-1#{'node-1': [2, True], 'node-2': [11, True], 'node-3': [0, True], 'node-4': [10, True]}
+23:13:22 DEBUG  sending_thread:29  Send the message
+23:13:22 DEBUG  sending_thread:20  Create the client socket
+23:13:22 DEBUG  sending_thread:24  Encode the message
+23:13:22 DEBUG  sending_thread:26  message: node-1#{'node-1': [2, True], 'node-2': [11, True], 'node-3': [0, True], 'node-4': [10, True]}
+23:13:22 DEBUG  sending_thread:29  Send the message
+23:13:22 DEBUG  sending_thread:20  Create the client socket
+23:13:22 DEBUG  sending_thread:24  Encode the message
+23:13:22 DEBUG  sending_thread:26  message: node-1#{'node-1': [2, True], 'node-2': [11, True], 'node-3': [0, True], 'node-4': [10, True]}
+23:13:22 DEBUG  sending_thread:29  Send the message
+23:13:25 INFO   listening_thread:140 message_raw: node-2#{'node-1': [1, True], 'node-2': [12, True], 'node-3': [0, True], 'node-4': [11, True]}
+23:13:25 INFO   listening_thread:154 Receive message from node-2...
+23:13:25 INFO   listening_thread:156 Incoming message:
+{'node-1': [1, True],
+ 'node-2': [12, True],
+ 'node-3': [0, True],
+ 'node-4': [11, True]}
+23:13:25 DEBUG  listening_thread:158 address: ('127.0.0.1', 58603)
+23:13:25 DEBUG  listening_thread:159 Process the message...
+23:13:25 DEBUG  listening_thread:170 input_node_list node-1: [1, True]
+23:13:25 DEBUG  listening_thread:171 current_node_list node-1: [2, True]
+23:13:25 DEBUG  listening_thread:182 Update logical time node-1: 2 -> 1
+23:13:25 DEBUG  listening_thread:188 Check if node-1 has died...
+23:13:25 DEBUG  listening_thread:191 node-1 has not died...
+23:13:25 DEBUG  listening_thread:170 input_node_list node-2: [12, True]
+23:13:25 DEBUG  listening_thread:171 current_node_list node-2: [11, True]
+23:13:25 DEBUG  listening_thread:182 Update logical time node-2: 11 -> 12
+23:13:25 DEBUG  listening_thread:188 Check if node-2 has died...
+23:13:25 DEBUG  listening_thread:191 node-2 has not died...
+23:13:25 DEBUG  listening_thread:170 input_node_list node-3: [0, True]
+23:13:25 DEBUG  listening_thread:171 current_node_list node-3: [0, True]
+23:13:25 DEBUG  listening_thread:179 Skip this loop...
+23:13:25 DEBUG  listening_thread:170 input_node_list node-4: [11, True]
+23:13:25 DEBUG  listening_thread:171 current_node_list node-4: [10, True]
+23:13:25 DEBUG  listening_thread:182 Update logical time node-4: 10 -> 11
+23:13:25 DEBUG  listening_thread:188 Check if node-4 has died...
+23:13:25 DEBUG  listening_thread:191 node-4 has not died...
+23:13:25 INFO   listening_thread:195 status_dictionary after incoming message:
+{'node-1': [1, True],
+ 'node-2': [12, True],
+ 'node-3': [0, True],
+ 'node-4': [11, True]}
+23:13:25 INFO   listening_thread:140 message_raw: node-4#{'node-1': [2, True], 'node-2': [11, True], 'node-3': [0, True], 'node-4': [12, True]}
+23:13:25 INFO   listening_thread:154 Receive message from node-4...
+23:13:25 INFO   listening_thread:156 Incoming message:
+{'node-1': [2, True],
+ 'node-2': [11, True],
+ 'node-3': [0, True],
+ 'node-4': [12, True]}
+23:13:25 DEBUG  listening_thread:158 address: ('127.0.0.1', 52715)
+23:13:25 DEBUG  listening_thread:159 Process the message...
+23:13:25 DEBUG  listening_thread:170 input_node_list node-1: [2, True]
+23:13:25 DEBUG  listening_thread:171 current_node_list node-1: [1, True]
+23:13:25 DEBUG  listening_thread:182 Update logical time node-1: 1 -> 2
+23:13:25 DEBUG  listening_thread:188 Check if node-1 has died...
+23:13:25 DEBUG  listening_thread:191 node-1 has not died...
+23:13:25 DEBUG  listening_thread:170 input_node_list node-2: [11, True]
+23:13:25 DEBUG  listening_thread:171 current_node_list node-2: [12, True]
+23:13:25 DEBUG  listening_thread:179 Skip this loop...
+23:13:25 DEBUG  listening_thread:170 input_node_list node-3: [0, True]
+23:13:25 DEBUG  listening_thread:171 current_node_list node-3: [0, True]
+23:13:25 DEBUG  listening_thread:179 Skip this loop...
+23:13:25 DEBUG  listening_thread:170 input_node_list node-4: [12, True]
+23:13:25 DEBUG  listening_thread:171 current_node_list node-4: [11, True]
+23:13:25 DEBUG  listening_thread:182 Update logical time node-4: 11 -> 12
+23:13:25 DEBUG  listening_thread:188 Check if node-4 has died...
+23:13:25 DEBUG  listening_thread:191 node-4 has not died...
+23:13:25 INFO   listening_thread:195 status_dictionary after incoming message:
+{'node-1': [2, True],
+ 'node-2': [12, True],
+ 'node-3': [0, True],
+ 'node-4': [12, True]}
+23:13:27 INFO   sending_thread:49  Increase heartbeat node-1:
+{'node-1': [3, True],
+ 'node-2': [12, True],
+ 'node-3': [0, True],
+ 'node-4': [12, True]}
+23:13:27 INFO   sending_thread:51  Determining which node to send...
+23:13:27 INFO   sending_thread:67  Send messages to main node, node-3, node-4
+23:13:27 DEBUG  sending_thread:20  Create the client socket
+23:13:27 DEBUG  sending_thread:24  Encode the message
+23:13:27 DEBUG  sending_thread:26  message: node-1#{'node-1': [3, True], 'node-2': [12, True], 'node-3': [0, True], 'node-4': [12, True]}
+23:13:27 DEBUG  sending_thread:29  Send the message
+23:13:27 DEBUG  sending_thread:20  Create the client socket
+23:13:27 DEBUG  sending_thread:24  Encode the message
+23:13:27 DEBUG  sending_thread:26  message: node-1#{'node-1': [3, True], 'node-2': [12, True], 'node-3': [0, True], 'node-4': [12, True]}
+23:13:27 DEBUG  sending_thread:29  Send the message
+23:13:27 DEBUG  sending_thread:20  Create the client socket
+23:13:27 DEBUG  sending_thread:24  Encode the message
+23:13:27 DEBUG  sending_thread:26  message: node-1#{'node-1': [3, True], 'node-2': [12, True], 'node-3': [0, True], 'node-4': [12, True]}
+23:13:27 DEBUG  sending_thread:29  Send the message
+23:13:28 INFO   Thread-6:15  This node become a fault: node-3
+23:13:28 INFO   Thread-6:16  Node fault status_dictionary:
+{'node-1': [3, True],
+ 'node-2': [12, True],
+ 'node-3': [0, False],
+ 'node-4': [12, True]}

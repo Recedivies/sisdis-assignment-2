@@ -111,6 +111,13 @@ def tcp_listening_procedure(port, node_id):
         connection.close()
 
 
+def is_restart_node() -> bool:
+    cnt = 0
+    for node_id in range(1, len(status_dictionary) + 1):
+        cnt += status_dictionary[f"node-{node_id}"][0]
+    return cnt == 1
+
+
 def listening_procedure(port, node_id, fault_duration):
     # TODO
     # Create a UDP socket to listen to all other node
@@ -167,6 +174,8 @@ def listening_procedure(port, node_id, fault_duration):
             if (
                 current_logical_time >= input_logical_time
                 and current_status == input_status
+                and not is_restart_node()
+                and input_logical_time != 1
             ):
                 logger.debug("Skip this loop...")
                 continue

@@ -53,7 +53,7 @@ def thread_exception_handler(args):
 def parse_args():
     parser = ArgumentParser()
     parser.add_argument(
-        "-n", type=str, dest="node", help="The number of nodes", default="4"
+        "-n", type=int, dest="node", help="The number of nodes", default="4"
     )
     parser.add_argument(
         "-m",
@@ -161,7 +161,7 @@ def listening_procedure(port, timeout, stop_event):
             logger.debug(f"address: {address}")
             logger.debug("Process the message...")
 
-            for node_id in range(1, 5):
+            for node_id in range(1, len(main_status_dictionary) + 1):
                 node = f"node-{node_id}"
 
                 logger.debug(f"key: {node}")
@@ -195,6 +195,9 @@ def listening_procedure(port, timeout, stop_event):
                 if input_status == True:
                     logger.debug(f"{node} has not died...")
                 else:
+                    if node_dictionary.get(node):
+                        process = node_dictionary.pop(node)
+                        process.kill()
                     logger.debug(f"{node} has died...")
 
             logger.info(
@@ -263,6 +266,10 @@ def interactive_mode(starting_port, port_used, args):
 
                 logger.info(f"Checking node-{node_id} with port {port_node} status...")
 
+                if node_id < 1 or node_id > args.node:
+                    logger.info(f"Node {node_id} is doesn't exists.")
+                    continue
+
                 node_name = f"node-{node_id}"
                 if node_name in node_dictionary:
                     status_dictionary_node = check_node_status(
@@ -279,6 +286,10 @@ def interactive_mode(starting_port, port_used, args):
                 # TODO
                 # Start the node with the given node_id
                 # Configuration should match the one in setup_nodes
+
+                if node_id < 1 or node_id > args.node:
+                    logger.info(f"Node {node_id} is doesn't exists.")
+                    continue
 
                 node_name = f"node-{node_id}"
                 if node_name not in node_dictionary:
@@ -308,6 +319,10 @@ def interactive_mode(starting_port, port_used, args):
                 # TODO
                 # Kill the node with the given node_id
                 # All nodes should mark this node as fault in their Status Dictionary automatically
+
+                if node_id < 1 or node_id > args.node:
+                    logger.info(f"Node {node_id} is doesn't exists.")
+                    continue
 
                 node_name = f"node-{node_id}"
                 if node_name in node_dictionary:
