@@ -196,8 +196,8 @@ def listening_procedure(port, timeout, stop_event):
                     logger.debug(f"{node} has not died...")
                 else:
                     if node_dictionary.get(node):
-                        process = node_dictionary.pop(node)
-                        process.kill()
+                        node_dictionary.pop(node)
+                        # process.kill()
                     logger.debug(f"{node} has died...")
 
             logger.info(

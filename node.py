@@ -50,16 +50,7 @@ def sending_procedure(
 
         logger.info("Determining which node to send...")
 
-        alive_port_node = []
-        for port in neighbors_ports:
-            node_name = f"node-{node_ports[port]}"
-            status = status_dictionary[node_name][1]
-            if status == True:
-                alive_port_node.append(port)
-
-        random_neighbors = random.sample(
-            alive_port_node, min(num_of_neighbors_to_choose, len(alive_port_node))
-        )
+        random_neighbors = random.sample(neighbors_ports, num_of_neighbors_to_choose)
 
         node_names = [f"node-{node_ports[node]}" for node in random_neighbors]
         log_message = "Send messages to main node, " + ", ".join(node_names)
@@ -86,7 +77,7 @@ def fault_timer_procedure(node_id, fault_duration):
 def tcp_listening_procedure(port, node_id):
     # TODO
     # Create a TCP socket to listen to the main node
-    # Arguments: Main Node port, Node ID
+    # Arguments: Node port, Node ID
 
     logger.info("Initiating TCP socket")
 
